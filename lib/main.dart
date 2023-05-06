@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'GYM APP MVP'),
     );
   }
 }
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _timeLeft = 5;
     }
 
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_timeLeft > 0) {
         setState(() {
           // change the timer value
@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Center(child: Text(widget.title)),
       ),
       body: Center(
         child: Column(
@@ -74,19 +74,17 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               _timeLeft != 0 ? _timeLeft.toString() : 'DONE',
-              style: TextStyle(fontSize: 50),
+              style: const TextStyle(fontSize: 50),
             ),
             MaterialButton(
               onPressed: _startCountDoun,
-              child: Text(
+              color: Colors.deepPurple,
+              child: const Text(
                 'S T A R T - T I M E R',
                 style: TextStyle(color: Colors.amber),
               ),
-              color: Colors.deepPurple,
             ),
-            Container(
-              child: Image.asset('assets/images/$_counter.gif'),
-            ),
+            Image.asset('assets/images/$_counter.gif'),
             const Text(
               'You have pushed the button this many times:',
             ),
